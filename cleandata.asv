@@ -83,26 +83,14 @@ elseif n >= 50;
 end
 
 for t = 1:25;
-MDNcon = zeros(size(HGCON));
-MDNcon(:) = HGCON(:);
-MDNcon(MDNcon==max(MDNcon)) = NaN;
+MDNco = zeros(size(HGCON));
+MDNout(:) = HGCON(:);
+MDNout(MDNout==max(MDNout)) = NaN;
 
-MDNpre = zeros(size(HGPRE));
-MDNpre(:) = HGPRE(:);
-MDNpre(MDNpre==max(MDNpre)) = NaN;
-
-MDNdep = zeros(size(HGDEP));
-MDNdep(:) = HGDEP(:);
-MDNdep(MDNdep==max(MDNdep)) = NaN;
-
-R = (max(MDNcon) - nanmedian(MDNcon))/nanstd(MDNcon);
-T = (max(MDNpre) - nanmedian(MDNpre))/nanstd(MDNcon);
-S = (max(MDNdep) - nanmedian(MDNdep))/nanstd(MDNdep);
+R = (max(MDNout) - nanmedian(MDNout))/nanstd(MDNout);
 
 if R > l;
-    HGCON(:) = MDNcon(:);
-    HGDEP(:) = MDNdep(:);
-    HGPRE(:) = MDNpre(:);
+    HGCON(:) = MDNout(:);
 end
 end
 
