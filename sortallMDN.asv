@@ -1,12 +1,11 @@
 %% MDNsort
-function[MDNsort,MDNdy,MDNpre,MDNcon,MDNdep,MDNmpre,MDNmcon,MDNmdep] = sortallMDN(MDN)
+function[MDNsort,MDNdy,MDNpre,MDNcon,MDNdep] = sortallMDN(MDN)
 D = table2array(MDN(:,2));
 Date = cellfun(@datenum, D);
 [HGPRE,HGCON,HGDEP] = cleandata(MDN);
 
 MDNsort = sortMDN(Date,HGPRE,HGCON,HGDEP);
 [MDNdy] = dayavg(MDNsort);
-[monthmed, MDNmpre,MDNmcon,MDNmdep] = monmed(MDNdy);
 [monthavg, MDNpre,MDNcon,MDNdep] = monavg(MDNdy);
 [unsMDNpre,unsMDNcon,unsMDNdep] = nomedianformat(MDNdy);
 end
