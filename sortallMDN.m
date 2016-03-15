@@ -284,7 +284,7 @@ end
     monthmed(11,:) = nanmedian(temp11);
     monthmed(12,:) = nanmedian(temp12);
     
-[MDNpre,MDNcon,MDNdep] = changeformat(monthmed);
+[MDNmpre,MDNmcon,MDNmdep] = changeformat(monthmed);
 end
 %% Same function as immediately before, but with means instead of medians
 function[monthavg,MDNpre,MDNcon,MDNdep] = monavg(MDNsort)
